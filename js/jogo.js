@@ -20,9 +20,9 @@ var cronometro = setInterval(
     function(){
         tempo -= 1
         if (tempo < 0) {
-            clearInterval(cronometro)   //limpando a memoria do navegador
-            clearInterval(criaMosca)    //limpando a memoria do navegador
-            alert('vit')
+            clearInterval(cronometro)   //limpando a função memoria do interval
+            clearInterval(criaMosca)    //limpando a função memoria do interval
+            window.location.href = 'vitoria.html'
         } else {
             document.getElementById('cronometro').innerHTML = tempo
         }
@@ -30,14 +30,14 @@ var cronometro = setInterval(
 )
 
 function posicaoRandomica() {
-/*  remover mosquito anterior caso exista
-    se clicado, o elemento deve ser removido e nada acontece
-*/
 
-/*  controlando os pontos de vidas:
-    se elemento nao for clicado antes da remoção automática, um ponto de vida deve ser removido
-    se as vidas removidas forem maior do que 3 = Game Over 
-*/
+    /*  remover mosquito anterior caso exista
+        se clicado, o elemento deve ser removido e nada acontece
+    */
+    /*  controlando os pontos de vidas:
+        se elemento nao for clicado antes da remoção automática, um ponto de vida deve ser removido
+        se as vidas removidas forem maior do que 3 = Game Over 
+    */
     if (document.getElementById('mosquito')) {
         document.getElementById('mosquito').remove();
         if (vidas > 3) {
@@ -48,15 +48,15 @@ function posicaoRandomica() {
         }
     }
 
-// posição randomica da mosca na tela
+    // posição randomica da mosca na tela
 	var posicaoX = Math.floor(Math.random() * largura) - 90
 	var posicaoY = Math.floor(Math.random() * altura) - 90
 	posicaoX = posicaoX < 0 ? 0 : posicaoX
 	posicaoY = posicaoY < 0 ? 0 : posicaoY
 	console.log(posicaoX, posicaoY)
 
-//criar o elemento html
-	var mosquito = document.createElement('img')
+    //criar o elemento html
+    var mosquito = document.createElement('img')
 	mosquito.src = 'image/mosca.png'
 	mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
 	mosquito.style.left = posicaoX + 'px'
