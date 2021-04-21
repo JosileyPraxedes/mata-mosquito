@@ -25,11 +25,12 @@ function posicaoRandomica() {
     if (document.getElementById('mosquito')) {
         document.getElementById('mosquito').remove();
         if (vidas > 3) {
-            alert('Game Over')
+            window.location.href = 'fim_de_jogo.html'
+        } else {
+            document.getElementById('vida' + vidas).src="./image/coracao_vazio.png";
+            vidas++
         }
-        document.getElementById('vida' + vidas).src="./image/coracao_vazio.png";
-
-        vidas++
+       
     }
 
     // posição randomica da mosca na tela
