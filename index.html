@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- CSS only -->
+
         <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -12,31 +12,62 @@
         crossorigin="anonymous"
         />
         <link rel="stylesheet" href="./styles/styles.css" />
+
+        <script>
+        // selecionando niveis
+        function iniciarJogo() {
+            var nivel = document.getElementById('nivel').value
+
+            if (nivel === '') {
+                alert('Selecione um nível para iniciar o jogo!')
+                return false
+            }
+
+            /* encaminhando parâmetros - 
+                ? serve para separar a pagina dos parâmetros */
+            window.location.href = 'app.html?' + nivel
+        }
+        </script>
         <title>Página Inicial</title>
     </head>
     <body>
         <div class="container">
-        <div class="row">
-            <div class="col">
-            <div class="d-flex justify-content-center">
-                <img src="./image/game.png" alt="inicio de jogo" />
+            <div class="row">
+                <div class="col">
+                <div class="d-flex justify-content-center">
+                    <img src="./image/game.png" alt="inicio de jogo" />
+                </div>
+                </div>
             </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col">
-            <div class="d-flex justify-content-center">
-                <button
-                type="reset"
-                class="btn btn-danger btn-lg"
-                onClick="window.location.href = 'app.html'"
-                >
-                Iniciar Jogo
-                </button>
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <div class="mb-2">
+                            <select class="form-control" id="nivel">
+                            <option value="">-- Selecione o nível ---</option>
+                            <option value="normal">Normal</option>
+                            <option value="dificil">Difícil</option>
+                            <option value="chucknorris">Chuck Norris</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <button
+                        type="reset"
+                        class="btn btn-danger btn-lg"
+                        onClick="iniciarJogo()"
+                        >
+                        Iniciar Jogo
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
     </body>
 </html>

@@ -2,6 +2,8 @@ var altura = 0;
 var largura = 0;
 var vidas = 1;
 var tempo = 15;
+var criaMoscaTempo = 1500
+var nivel = window.location.search // recuperando nível da página
 
 function ajustaTamanhoPalcoJogo() {
   altura = window.innerHeight;
@@ -93,4 +95,16 @@ function ladoAleatorio() {
     case 1:
       return "ladoB";
   }
+}
+
+// niveis
+// substituindo o ponto de interrogação e passando valor vazio
+nivel = nivel.replace('?', '')
+
+if (nivel === 'normal') {
+    criaMoscaTempo = 1500;
+} else if ( nivel === 'difícil') {
+    criaMoscaTempo = 1000
+} else if ( nivel === 'chucknorris') {
+    criaMoscaTempo = 750
 }
